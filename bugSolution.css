@@ -1,0 +1,19 @@
+/* Correct use of calc() addressing operator precedence and unit consistency */
+.example {
+  width: calc(100% - 20px);
+  /* parentheses ensure correct subtraction */
+  height: calc(50% + (100px / 2));
+  /* correct order using parentheses */
+  box-shadow: calc(0px + 5px) calc(0px + 5px) calc(5px + 10px) rgba(0,0,0,0.5);
+  /* ensures proper shadow calculation */
+  transform: scale(calc(1 + 0.1));
+  /* adding parentheses to ensure correct calculation */
+}
+/*In the example below we use parentheses to force the order of operations. Without the parentheses, the wrong result would occur.*/
+.correct-precedence {
+  width: calc((100% - 20px) / 2);
+}
+/*This example shows correct unit consistency. Mixing units in calc() without parentheses may produce unexpected results.*/
+.correct-units {
+  height: calc(50% + 100px);
+}
